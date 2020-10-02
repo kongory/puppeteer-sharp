@@ -402,15 +402,13 @@ namespace PuppeteerSharp
                     {
                         HandleAuthRequests = true,
                         Patterns = new[] { new FetchEnableRequest.Pattern { UrlPattern = "*" } }
-                    })
-                ).ConfigureAwait(false);
+                    })).ConfigureAwait(false);
             }
             else
             {
                 await Task.WhenAll(
                     UpdateProtocolCacheDisabledAsync(),
-                    _client.SendAsync("Fetch.disable")
-                ).ConfigureAwait(false);
+                    _client.SendAsync("Fetch.disable")).ConfigureAwait(false);
             }
         }
 
